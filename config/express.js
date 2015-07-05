@@ -7,6 +7,7 @@ var methodOverride = require('method-override');
 var session = require('express-session');
 var flash = require('connect-flash');
 var passport = require('passport');
+var dotenv = require('dotenv');
 
 module.exports = function() {
     var app = express();
