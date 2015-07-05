@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+    <head>
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+        <title><%= title %></title>
+    </head>
+    <body ng-cloak>
+        <% include partials/flash.server.partial.html %>
+        <section ng-view></section>
+
+        <script>window.user = <%- user || 'null' %></script>
+        <!-- local libs -->
+        <script src="/lib/angular/angular.min.js"></script>
+        <script src="/lib/angular-route/angular-route.min.js"></script>
+        <script src="/lib/angular-resource/angular-resource.min.js"></script>
+        <!-- articles module -->
+        <script src="/modules/articles/articles.client.module.js"></script>
+        <script src="/modules/articles/controllers/articles.client.controller.js"></script>
+        <script src="/modules/articles/services/articles.client.service.js"></script>
+        <script src="/modules/articles/config/articles.client.routes.js"></script>
+        <!-- example module -->
+        <script src="/modules/example/example.client.module.js"></script>
+        <script src="/modules/example/controllers/example.client.controller.js"></script>
+        <script src="/modules/example/config/example.client.routes.js"></script>
+        <!-- users module -->
+        <script src="/modules/users/users.client.module.js"></script>
+        <script src="/modules/users/services/authentication.client.service.js"></script>
+        <script src="/application.js"></script>
+    </body>
+</html>
