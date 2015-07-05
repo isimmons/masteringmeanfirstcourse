@@ -1,4 +1,6 @@
 var config = require('./config');
+var http = require('http');
+var socketio = require('socket.io');
 var express = require('express');
 var morgan = require('morgan');
 var compress = require('compression');
@@ -11,6 +13,8 @@ var dotenv = require('dotenv');
 
 module.exports = function() {
     var app = express();
+    var server = http.createServer(app);
+    var io = socketio.listen(server);
 
     if(process.env.NODE_ENV === 'development') {
         app.use(morgan('dev'));
@@ -59,5 +63,6 @@ if (process.env.NODE_ENV === 'development') {
 
     app.use(express.static('./public'));
 
-    return app;
+    //return server instead of app now that using socketio and http server wrapping app
+    return server;
 };
