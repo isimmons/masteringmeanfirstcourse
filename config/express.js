@@ -10,8 +10,9 @@ var session = require('express-session');
 var flash = require('connect-flash');
 var passport = require('passport');
 var dotenv = require('dotenv');
+var MongoStore = require('connect-mongo')(session);
 
-module.exports = function() {
+module.exports = function(db) {
     var app = express();
     var server = http.createServer(app);
     var io = socketio.listen(server);
@@ -35,19 +36,24 @@ if (process.env.NODE_ENV === 'development') {
     });
 }
 
+    //requests
     app.use(bodyParser.urlencoded({
         extended: true
     }));
-    
-
     app.use(bodyParser.json());
-
     app.use(methodOverride());
 
+
+    //sessions
+    var mongoStore = new MongoStore({
+        mongooseConnection: db.connection,
+        db: db.connection.db
+    });
     app.use(session({
         saveUninitialized: true,
         resave: true,
-        secret: config.sessionSecret
+        secret: config.sessionSecret,
+        store: mongoStore
     }));
 
     app.set('views', './app/views');
@@ -62,6 +68,9 @@ if (process.env.NODE_ENV === 'development') {
     require('../app/routes/articles.server.routes.js')(app);
 
     app.use(express.static('./public'));
+
+    //execute socket.io configuration and set the socket.io session
+    require('./socketio')(server, io, mongoStore);
 
     //return server instead of app now that using socketio and http server wrapping app
     return server;
