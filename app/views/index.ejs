@@ -9,6 +9,8 @@
         <section ng-view></section>
 
         <script>window.user = <%- user || 'null' %></script>
+        <!-- socket.io served locally by the socket.io server -->
+        <script src="/socket.io/socket.io.js"></script>
         <!-- local libs -->
         <script src="/lib/angular/angular.min.js"></script>
         <script src="/lib/angular-route/angular-route.min.js"></script>
@@ -25,6 +27,12 @@
         <!-- users module -->
         <script src="/modules/users/users.client.module.js"></script>
         <script src="/modules/users/services/authentication.client.service.js"></script>
+        <!-- chat module -->
+        <script src="/modules/chat/chat.client.module.js"></script>
+        <script src="/modules/chat/services/socket.client.service.js"></script>
+        <script src="/modules/chat/controllers/chat.client.controller.js"></script>
+        <script src="/modules/chat/config/chat.client.routes.js"></script>
+        <!-- Main application module -->
         <script src="/application.js"></script>
     </body>
 </html>

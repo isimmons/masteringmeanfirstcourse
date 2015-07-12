@@ -1,7 +1,7 @@
 var ApplicationModuleName = 'mean';
 
 var ApplicationModule = angular.module( ApplicationModuleName,
-    ['ngResource', 'ngRoute', 'users', 'example', 'articles']
+    ['ngResource', 'ngRoute', 'users', 'example', 'articles', 'chat']
 );
 
 //fix hash mark for SEO
