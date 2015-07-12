@@ -33,3 +33,9 @@ G_CALLBACK_URL=yourappcallbackurl
 ```
 
 To add more env variables just add them here and then add the appropriate lines in either testing.js or development.js located in config/env
+
+#Testing
+One liner to set env and run mocha tests
+```
+set NODE_ENV=testing&& mocha --reporter spec tests
+```
