@@ -1,11 +1,7 @@
 module.exports = {
-    //development specific env config settings
 
-    /** Database **/
-    //example non local mongodb://username:password@hostname:port/database
     db: process.env.DATABASE,
 
-    /** Sessions **/
     sessionSecret: process.env.SESSION_SECRET,
 
     facebook: {
