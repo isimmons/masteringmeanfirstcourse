@@ -7,6 +7,7 @@ module.exports = function(config) {
       'public/lib/angular-route/angular-route.js',
       'public/lib/angular-mocks/angular-mocks.js',
       'public/application.js',
+      // **/*.js not working for these
       'public/modules/*[a-zA-Z]*/*.js',
       'public/modules/*[a-zA-Z]*/*[!tests]*/*.js',
       'public/modules/*[a-zA-Z]*/tests/unit/*.js'
