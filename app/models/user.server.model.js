@@ -11,14 +11,13 @@ var urlModifier = function(url) {
         }
         return url;
     }
-}
+};
 
 var UserSchema = new Schema({
     firstName: String,
     lastName: String,
     email: {
         type: String,
-        unique: true,
         unique: 'That email is already taken',
         match: [/.+\@.+\..+/, 'Please use a valid e-mail address']
     },

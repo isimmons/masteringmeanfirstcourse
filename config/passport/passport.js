@@ -20,4 +20,4 @@ module.exports = function() {
     require('./strategies/facebook.js')();
     require('./strategies/twitter.js')();
     require('./strategies/google.js')();
-}
+};

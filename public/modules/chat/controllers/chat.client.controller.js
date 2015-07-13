@@ -14,11 +14,11 @@ angular.module('chat').controller('ChatController', ['$scope', 'Socket',
           Socket.emit('chatMessage', message);
                 
           this.messageText = '';
-        }
+        };
       
         $scope.$on('$destroy', function() {
           Socket.removeListener('chatMessage');
-        })
+        });
 
       }
 ]);

@@ -162,7 +162,7 @@ exports.delete = function(req, res, next) {
     } else {
       res.json(req.user);
     }
-  })
+  });
 };
 
 exports.userByID = function(req, res, next, id) {

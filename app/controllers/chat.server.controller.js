@@ -22,4 +22,4 @@ module.exports = function(io, socket) {
         username: socket.request.user.username
         });
     });
-}
+};
